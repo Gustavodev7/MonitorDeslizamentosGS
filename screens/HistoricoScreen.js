@@ -14,19 +14,46 @@ export default function HistoricoScreen() {
     carregarHistorico();
   }, []);
 
+  // Função para verificar risco (ajuste os limiares conforme seu app)
+  const isRisco = (umidade, inclinacao) => {
+    return umidade > 70 && inclinacao > 25; // ajuste conforme seu critério!
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Histórico de Monitoramento</Text>
       <FlatList
         data={dados}
         keyExtractor={(_, idx) => idx.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={styles.data}>Data: {item.data}</Text>
-            <Text style={styles.text}>Umidade: <Text style={styles.bold}>{item.umidade}%</Text></Text>
-            <Text style={styles.text}>Inclinação: <Text style={styles.bold}>{item.inclinacao}°</Text></Text>
-          </View>
-        )}
+        renderItem={({ item }) => {
+          const risco = isRisco(item.umidade, item.inclinacao);
+          return (
+            <View
+              style={[
+                styles.card,
+                risco && {
+                  borderLeftColor: '#d32f2f',
+                  backgroundColor: '#fff0f0',
+                },
+              ]}
+            >
+              <Text style={[styles.data, risco && { color: '#b71c1c' }]}>
+                Data: {item.data}
+              </Text>
+              <Text style={[styles.text, risco && { color: '#d32f2f' }]}>
+                Umidade: <Text style={[styles.bold, risco && { color: '#b71c1c' }]}>{item.umidade}%</Text>
+              </Text>
+              <Text style={[styles.text, risco && { color: '#d32f2f' }]}>
+                Inclinação: <Text style={[styles.bold, risco && { color: '#b71c1c' }]}>{item.inclinacao}°</Text>
+              </Text>
+              {risco && (
+                <Text style={{ color: '#d32f2f', fontWeight: 'bold', marginTop: 8 }}>
+                  RISCO DE DESLIZAMENTO!
+                </Text>
+              )}
+            </View>
+          );
+        }}
         ListEmptyComponent={<Text style={{ color: '#888' }}>Nenhum dado registrado.</Text>}
       />
     </View>
