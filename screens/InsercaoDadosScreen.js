@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function InsercaoDadosScreen() {
@@ -31,25 +31,63 @@ export default function InsercaoDadosScreen() {
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1 }}>
-      <View style={{ flex: 1, padding: 20, justifyContent: 'center' }}>
-        <Text style={{ fontSize: 20, marginBottom: 10 }}>Umidade do Solo (%)</Text>
+      <View style={styles.container}>
+        <Text style={styles.label}>Umidade do Solo (%)</Text>
         <TextInput
           keyboardType="numeric"
           value={umidade}
           onChangeText={setUmidade}
           placeholder="Ex: 65"
-          style={{ borderWidth: 1, borderRadius: 5, marginBottom: 15, padding: 8 }}
+          style={styles.input}
         />
-        <Text style={{ fontSize: 20, marginBottom: 10 }}>Inclinação (graus)</Text>
+        <Text style={styles.label}>Inclinação (graus)</Text>
         <TextInput
           keyboardType="numeric"
           value={inclinacao}
           onChangeText={setInclinacao}
           placeholder="Ex: 30"
-          style={{ borderWidth: 1, borderRadius: 5, marginBottom: 15, padding: 8 }}
+          style={styles.input}
         />
-        <Button title="Salvar Dados" onPress={salvarDados} />
+        <TouchableOpacity style={styles.button} onPress={salvarDados}>
+          <Text style={styles.buttonText}>Salvar Dados</Text>
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    padding: 24,
+  },
+  label: {
+    fontSize: 20,
+    color: '#146C94',
+    marginBottom: 6,
+    fontWeight: '600',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#19A7CE',
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 18,
+    fontSize: 18,
+    backgroundColor: '#f2f7fa',
+  },
+  button: {
+    backgroundColor: '#19A7CE',
+    paddingVertical: 14,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 12,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+});
