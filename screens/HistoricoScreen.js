@@ -14,9 +14,9 @@ export default function HistoricoScreen() {
     carregarHistorico();
   }, []);
 
-  // Função para verificar risco (ajuste os limiares conforme seu app)
+  
   const isRisco = (umidade, inclinacao) => {
-    return umidade > 70 && inclinacao > 25; // ajuste conforme seu critério!
+    return umidade > 70 && inclinacao > 25; 
   };
 
   return (

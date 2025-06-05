@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function BoasVindasScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* Ícone e título centralizados */}
+      {}
       <View style={{ alignItems: 'center', marginBottom: 16 }}>
         <MaterialCommunityIcons name="weather-cloudy" size={48} color="#19A7CE" />
         <Text style={styles.title}>Bem-vindo, insira os dados abaixo:</Text>
