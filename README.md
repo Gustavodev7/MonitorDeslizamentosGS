@@ -27,3 +27,18 @@ A Tela de Histórico registra todas as entradas feitas no sistema e destaca visu
 Por fim, a Tela de Ações de Mitigação apresenta cinco medidas preventivas e um botão para acionar a Defesa Civil.
 
 Caso a explicação não tenha sido clara, no video de apresentação mostro de forma detalhada. 
+
+
+Para rodar no seu computador :
+
+1. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+2. Start the app
+
+   ```bash
+   npx expo start
+   ```
