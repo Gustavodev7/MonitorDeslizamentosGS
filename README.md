@@ -1,20 +1,29 @@
-RM550311 GUSTAVO NEGRI
-RM550339 GUILHERME BOLINA
-RM98756 LUCAS MAGALHAES
+Integrantes:
 
+RM550311 – Gustavo Negri
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+RM550339 – Guilherme Bolina
 
-## Get started
+RM98756 – Lucas Magalhães
 
-1. Install dependencies
+Descrição do Aplicativo:
 
-   ```bash
-   npm install
-   ```
+O aplicativo desenvolvido conta com cinco telas principais:
 
-2. Start the app
+Tela de Boas-Vindas
 
-   ```bash
-   npx expo start
-   ```
+Tela de Inserção de Dados
+
+Tela de Visualização de Riscos
+
+Tela de Histórico de Monitoramento
+
+Tela de Ações de Mitigação
+
+Na Tela de Inserção de Dados, o usuário pode adicionar valores relacionados ao solo e à inclinação. Em seguida, ao acessar a Tela de Visualização de Riscos, é possível verificar a situação atual, que varia de “normal” até “risco de deslizamento”.
+
+A Tela de Histórico registra todas as entradas feitas no sistema e destaca visualmente os casos em que houve risco de deslizamento.
+
+Por fim, a Tela de Ações de Mitigação apresenta cinco medidas preventivas e um botão para acionar a Defesa Civil.
+
+Caso a explicação não tenha sido clara, no video de apresentação mostro de forma detalhada. 
